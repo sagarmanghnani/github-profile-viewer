@@ -1,3 +1,4 @@
+import { error } from 'console';
 import API_URL from './constants/constants';
 import { IUserSearch, IUserSearchResponse } from './interfaces';
 
@@ -25,7 +26,23 @@ async function fetchSearchUsers(userSearchData: IUserSearch) {
     if (userData) return userData;
   } catch (err) {
     console.log(err);
+    showError('Something went wrong');
   }
 }
 
-export { debouncedFetchSearchUsers };
+function showError(errorMsg) {
+  const alertStateUpdater = window['alert_state_update'];
+  alertStateUpdater({
+    isActive: true,
+    severity: 'error',
+    message: errorMsg
+  });
+
+  const clearAlert = setTimeout(() => {
+    alertStateUpdater({
+      isActive: false
+    });
+  }, 2000);
+}
+
+export { debouncedFetchSearchUsers, showError };

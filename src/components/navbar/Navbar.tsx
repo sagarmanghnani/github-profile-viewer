@@ -84,7 +84,7 @@ export default function NavBar() {
               inputProps={{ 'aria-label': 'search' }}
               onChange={handleUserSearchInputChange}
             />
-            {userList.length > 3 && <UserSearchList userList={userList}></UserSearchList>}
+            {userList.length > 0 && <UserSearchList userList={userList}></UserSearchList>}
           </Search>
         </Toolbar>
       </AppBar>
