@@ -1,0 +1,10 @@
+.user-search-list-container {
+  position: relative;
+  width: 100%;
+}
+
+.user-search-list-enclose {
+  position: absolute;
+  top: 5px;
+  width: 100%;
+}

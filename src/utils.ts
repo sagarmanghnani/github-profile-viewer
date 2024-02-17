@@ -1,5 +1,5 @@
 import API_URL from './constants/constants';
-import { IUserSearch } from './interfaces';
+import { IUserSearch, IUserSearchResponse } from './interfaces';
 
 function debounce(func, delay) {
   let timeoutId;
@@ -15,12 +15,17 @@ function debounce(func, delay) {
 const debouncedFetchSearchUsers = debounce(fetchSearchUsers, 300);
 
 async function fetchSearchUsers(userSearchData: IUserSearch) {
-  const userDataResponse = await fetch(
-    `${API_URL.SEARCH_USER}?q=${userSearchData.userSearchStr}&per_page=${5}`
-  );
-  const userData = await userDataResponse.json();
-  console.log(userData, 'userDataResponse');
-  return userData;
+  try {
+    const { userSearchStr, setUserList } = userSearchData;
+    const userDataResponse = await fetch(`${API_URL.SEARCH_USER}?q=${userSearchStr}&per_page=${5}`);
+    const userData: IUserSearchResponse = await userDataResponse.json();
+    if (userData.items.length) {
+      setUserList(userData.items);
+    }
+    if (userData) return userData;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export { debouncedFetchSearchUsers };

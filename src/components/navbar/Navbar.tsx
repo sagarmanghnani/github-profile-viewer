@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import useSearchUser from '../../hooks/useSearchUser';
+import UserSearchList from '../user-search-list/UserSearchList';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function NavBar() {
-  const { handleUserSearchInputChange } = useSearchUser();
+  const { handleUserSearchInputChange, userList } = useSearchUser();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -83,6 +84,7 @@ export default function NavBar() {
               inputProps={{ 'aria-label': 'search' }}
               onChange={handleUserSearchInputChange}
             />
+            {userList.length > 3 && <UserSearchList userList={userList}></UserSearchList>}
           </Search>
         </Toolbar>
       </AppBar>

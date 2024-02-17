@@ -3,4 +3,20 @@ interface IUserSearch {
   setUserList: React.Dispatch<React.SetStateAction<unknown[]>>;
 }
 
-export type { IUserSearch };
+interface IUserDetail {
+  avatar_url: string;
+  login: string;
+  id: string;
+  url: string;
+}
+interface IUserSearchResponse {
+  items: IUserDetail[];
+}
+
+interface IListItems {
+  title: string;
+  id: string;
+  onClick?: () => void;
+}
+
+export type { IUserSearch, IUserSearchResponse, IUserDetail, IListItems };
