@@ -1,0 +1,19 @@
+{
+  "css.customData": [ "./.vscode/custom.css-data.json" ],
+  "typescript.tsserver.pluginPaths": [ "typescript-plugin-css-modules" ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": false, // required
+  "editor.formatOnType": false, // required
+  "editor.formatOnSave": true, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "prettier.configPath": ".prettierrc.json",
+  /*
+    Make sure VS Code is using the correct version of TypeScript
+    Sometimes VS Code's TypeScript process doesn't use the right version of TypeScript for the project I'm working on. 
+    For me, this seems to happen after updating TypeScript versions, or when switching between projects that use different versions of TypeScript.
+  */
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "testid"
+  ]
+}
