@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IListItems, ISearchUserDetail } from '../../interfaces';
 import List from '../list/List';
 import './user-search-list.css';
@@ -13,6 +13,7 @@ const UserSearchList = ({ userList, onSearchedUserListClick }: IUserSearchListPr
     isListLoading: true,
     listItems: []
   });
+  const [triggerReRender, setTriggerReRender] = useState<number>();
   const processUserList = () => {
     const isListLoading = !!userList?.length;
     const listItems: IListItems[] = userList.map((item: ISearchUserDetail) => {
@@ -28,6 +29,8 @@ const UserSearchList = ({ userList, onSearchedUserListClick }: IUserSearchListPr
         isListLoading,
         listItems
       };
+
+      setTriggerReRender(Math.random());
     }
   };
 
