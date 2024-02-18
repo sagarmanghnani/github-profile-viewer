@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { IListItems, IUserDetail } from '../../interfaces';
+import { IListItems, ISearchUserDetail } from '../../interfaces';
 import List from '../list/List';
 import './user-search-list.css';
 
 interface IUserSearchListProps {
-  userList: IUserDetail[];
+  userList: ISearchUserDetail[];
 }
 
 const UserSearchList = ({ userList }: IUserSearchListProps) => {
@@ -14,7 +14,7 @@ const UserSearchList = ({ userList }: IUserSearchListProps) => {
   });
   const processUserList = () => {
     const isListLoading = !!userList?.length;
-    const listItems: IListItems[] = userList.map((item: IUserDetail) => {
+    const listItems: IListItems[] = userList.map((item: ISearchUserDetail) => {
       const listItem: IListItems = {
         title: item.login,
         id: item.id

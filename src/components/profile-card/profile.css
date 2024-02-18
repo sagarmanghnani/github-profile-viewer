@@ -1,0 +1,58 @@
+.profile-card {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: rgba(110, 130, 180, 0.2) 0px 24px 32px -24px;
+  width: 320px;
+  flex-shrink: 0;
+  margin-right: 24px;
+  position: sticky;
+  top: 24px;
+}
+
+.pc-main-details {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 24px 18px;
+}
+
+.pc-identifier {
+  text-align: center;
+}
+
+.pc-identifier h1 {
+  margin: 4px 0px;
+  font-size: 1.25rem !important;
+}
+
+.pc-identifier p {
+  color: rgb(108, 118, 137);
+}
+
+.pc-other-details-container .pc-other-details-label {
+  font-weight: 600;
+  color: rgb(152, 160, 174);
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.pc-other-details-container .pc-other-details-value {
+  margin: 0;
+  color: rgb(36, 39, 46);
+}
+
+.pc-other-details-container {
+  padding: 12px 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-card {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .pc-other-details-container {
+    display: flex;
+  }
+}

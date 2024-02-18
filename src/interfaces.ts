@@ -3,14 +3,14 @@ interface IUserSearch {
   setUserList: React.Dispatch<React.SetStateAction<unknown[]>>;
 }
 
-interface IUserDetail {
+interface ISearchUserDetail {
   avatar_url: string;
   login: string;
   id: string;
   url: string;
 }
 interface IUserSearchResponse {
-  items: IUserDetail[];
+  items: ISearchUserDetail[];
 }
 
 interface IListItems {
@@ -19,4 +19,13 @@ interface IListItems {
   onClick?: () => void;
 }
 
-export type { IUserSearch, IUserSearchResponse, IUserDetail, IListItems };
+interface IUserDetail extends ISearchUserDetail {
+  name: string;
+  followers: number;
+  following: number;
+  location: string;
+  html_url: string;
+  public_repos: number;
+}
+
+export type { IUserSearch, IUserSearchResponse, ISearchUserDetail, IListItems, IUserDetail };

@@ -1,0 +1,14 @@
+.profile-page {
+  padding: 48px 24px;
+  margin: 0px auto;
+  background: #f3f4f7;
+  height: calc(100vh - 64px);
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 769px) {
+  .profile-page {
+    padding: 48px 24px;
+    margin: 0px auto;
+  }
+}
