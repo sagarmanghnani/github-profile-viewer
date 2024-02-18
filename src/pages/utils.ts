@@ -8,6 +8,7 @@ async function getProfileDetails(profileId: string): Promise<IUserDetail> {
     return userDetail;
   } catch (err) {
     console.log(err);
+    throw err;
   }
 }
 
@@ -19,7 +20,9 @@ async function getUserRepositories(userId: string, page: number = 1): Promise<IR
     const repoDetail: IRepoDetail[] = await repoDetailresponse.json();
     console.log(repoDetail);
     return repoDetail;
-  } catch (err) {}
+  } catch (err) {
+    throw err;
+  }
 }
 
 export { getProfileDetails, getUserRepositories };

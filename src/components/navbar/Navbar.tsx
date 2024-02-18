@@ -12,6 +12,7 @@ import useSearchUser from '../../hooks/useSearchUser';
 import UserSearchList from '../user-search-list/UserSearchList';
 import './navbar.css';
 import { ISearchUserDetail } from '../../interfaces';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -61,6 +62,12 @@ interface INavBarProps {
 
 export default function NavBar({ onSearchItemClick }: INavBarProps) {
   const { handleUserSearchInputChange, userList, handleOnInputBlur } = useSearchUser();
+  const navigate = useNavigate();
+
+  const navigateToHomePage = () => {
+    navigate(`/`);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className="navbar-container">
@@ -70,14 +77,16 @@ export default function NavBar({ onSearchItemClick }: INavBarProps) {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}>
+            sx={{ mr: 2 }}
+            onClick={navigateToHomePage}>
             <GitHubIcon />
           </IconButton>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            onClick={navigateToHomePage}>
             Github Profile viewer
           </Typography>
           <Search>

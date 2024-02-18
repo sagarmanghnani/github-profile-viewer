@@ -14,6 +14,7 @@ import { Grid } from '@mui/material';
 import RepositoryList from '../components/repository-list/RepositoryList';
 import usePagination from '../hooks/usePagination';
 import Navbar from '../components/navbar/Navbar';
+import { showError } from '../utils';
 const Profile = (props) => {
   const { profileId } = useParams();
   const [userProfileId, setUserProfileId] = useState<string>(profileId);
@@ -50,6 +51,7 @@ const Profile = (props) => {
       setIsProfileLoading(false);
     } catch (err) {
       setIsProfileLoading(false);
+      showError(err?.message);
     }
   };
 
@@ -67,6 +69,7 @@ const Profile = (props) => {
       });
     } catch (err) {
       setIsRepoListLoading(false);
+      showError(err?.message);
     }
   };
 
