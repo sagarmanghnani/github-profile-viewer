@@ -61,7 +61,7 @@ interface INavBarProps {
 }
 
 export default function NavBar({ onSearchItemClick }: INavBarProps) {
-  const { handleUserSearchInputChange, userList } = useSearchUser();
+  const { handleUserSearchInputChange, userList, handleOnInputBlur } = useSearchUser();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" className="navbar-container">
@@ -89,6 +89,7 @@ export default function NavBar({ onSearchItemClick }: INavBarProps) {
               placeholder="Enter github username.."
               inputProps={{ 'aria-label': 'search' }}
               onChange={handleUserSearchInputChange}
+              onBlur={handleOnInputBlur}
             />
             {userList.length > 0 && (
               <UserSearchList

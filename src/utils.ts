@@ -21,9 +21,9 @@ async function fetchSearchUsers(userSearchData: IUserSearch) {
     const userDataResponse = await fetch(`${API_URL.SEARCH_USER}?q=${userSearchStr}&per_page=${5}`);
     const userData: IUserSearchResponse = await userDataResponse.json();
     if (userData.items.length) {
+      console.log(userSearchData.userSearchStr, 'userSearchStr', 'userdata', userData.items);
       setUserList(userData.items);
     }
-    if (userData) return userData;
   } catch (err) {
     console.log(err);
     showError('Something went wrong');

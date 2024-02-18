@@ -14,9 +14,14 @@ function useSearchUser() {
     }
   }
 
+  async function handleOnInputBlur(e) {
+    setUserList([]);
+  }
+
   return {
     handleUserSearchInputChange,
-    userList
+    userList,
+    handleOnInputBlur
   };
 }
 
