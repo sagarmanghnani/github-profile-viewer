@@ -1,0 +1,38 @@
+.homepage {
+  height: 100vh;
+  background: rgb(31, 38, 51);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-card {
+  width: 80%;
+  background: #f3f4f7;
+  height: 600px;
+  box-shadow: 1px 2px 6px 1px rgb(128 128 128 / 53%);
+  border-radius: 8px;
+}
+
+.gh-heading {
+  text-align: center;
+  font-size: 1.75rem;
+  line-height: 32px;
+  color: #5881cd;
+}
+
+.input-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.input-container input {
+  min-width: 200px;
+}
+
+.home-view-btn {
+  margin-left: 16px !important;
+}
