@@ -1,5 +1,5 @@
 import API_URL, { PAGINATION_SIZE } from '../constants/constants';
-import { IRepoDetail, ISearchUserDetail, IUserDetail } from '../interfaces';
+import { IRepoDetail, IUserDetail } from '../interfaces';
 
 async function getProfileDetails(profileId: string): Promise<IUserDetail> {
   try {

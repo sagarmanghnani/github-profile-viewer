@@ -1,9 +1,6 @@
-import { title } from 'process';
 import './App.css';
-import Navbar from './components/navbar/Navbar';
-import UserSearchList from './components/user-search-list/UserSearchList';
 import GHAlert from './components/alert/Alert';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Profile from './pages/Profile';
 function App() {
   return (

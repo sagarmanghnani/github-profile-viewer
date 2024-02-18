@@ -13,7 +13,7 @@ const UserSearchList = ({ userList, onSearchedUserListClick }: IUserSearchListPr
     isListLoading: true,
     listItems: []
   });
-  const [triggerReRender, setTriggerReRender] = useState<number>();
+  const [, setTriggerReRender] = useState<number>();
   const processUserList = () => {
     const isListLoading = !!userList?.length;
     const listItems: IListItems[] = userList.map((item: ISearchUserDetail) => {

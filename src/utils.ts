@@ -1,4 +1,3 @@
-import { error } from 'console';
 import API_URL from './constants/constants';
 import { IUserSearch, IUserSearchResponse } from './interfaces';
 
@@ -38,7 +37,7 @@ function showError(errorMsg) {
     message: errorMsg
   });
 
-  const clearAlert = setTimeout(() => {
+  setTimeout(() => {
     alertStateUpdater({
       isActive: false
     });

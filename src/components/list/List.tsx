@@ -1,5 +1,4 @@
 import MList from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import ListItem from './list-item/ListItem';
 
