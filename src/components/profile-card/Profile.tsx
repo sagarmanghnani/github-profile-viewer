@@ -1,6 +1,7 @@
 import { Avatar, Divider, Grid } from '@mui/material';
 import { IUserDetail } from '../../interfaces';
 import './profile.css';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 interface IProfileCardProps {
   userProfileDetails: IUserDetail;
@@ -38,7 +39,7 @@ const ProfileCard = ({ userProfileDetails }: IProfileCardProps) => {
           <div className="pc-identifier">
             <h1> {userProfileDetails?.name} </h1>
             <a target="_blank" href={userProfileDetails?.html_url}>
-              {' '}
+              <GitHubIcon></GitHubIcon>
               {userProfileDetails?.login}{' '}
             </a>
           </div>

@@ -20,6 +20,20 @@
   text-align: center;
 }
 
+.pc-identifier a {
+  color: rgb(108, 118, 137);
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pc-identifier a svg {
+  font-size: inherit;
+  margin-right: 4px;
+}
+
 .pc-identifier h1 {
   margin: 4px 0px;
   font-size: 1.25rem !important;
