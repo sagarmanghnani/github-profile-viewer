@@ -15,7 +15,9 @@ function useSearchUser() {
   }
 
   async function handleOnInputBlur(e) {
-    setUserList([]);
+    setTimeout(() => {
+      setUserList([]);
+    }, 500);
   }
 
   return {
