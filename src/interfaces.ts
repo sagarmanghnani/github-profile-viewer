@@ -28,4 +28,27 @@ interface IUserDetail extends ISearchUserDetail {
   public_repos: number;
 }
 
-export type { IUserSearch, IUserSearchResponse, ISearchUserDetail, IListItems, IUserDetail };
+interface IRepoDetail {
+  name: string;
+  description: string;
+}
+
+interface IPaginationInfo {
+  page: number;
+  size: number;
+}
+
+interface IRepositoryDetailWithPagination {
+  repoList: IRepoDetail[];
+}
+
+export type {
+  IUserSearch,
+  IUserSearchResponse,
+  ISearchUserDetail,
+  IListItems,
+  IUserDetail,
+  IRepoDetail,
+  IRepositoryDetailWithPagination,
+  IPaginationInfo
+};

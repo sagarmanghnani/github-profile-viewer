@@ -1,0 +1,19 @@
+.repo-card-container {
+  padding: 24px;
+  border-bottom: 1px solid rgb(244, 245, 246);
+}
+
+.repo-card-container h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: rgb(36, 39, 46);
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.repo-card-description {
+  font-size: 0.875rem;
+  color: rgb(72, 78, 91);
+  margin-top: 4px;
+}
