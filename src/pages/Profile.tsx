@@ -20,6 +20,9 @@ const Profile = (props) => {
     repoList: []
   });
 
+  const [isRepoListLoading, setIsRepoListLoading] = useState(false);
+  const [isProfileLoading, setIsProfileLoading] = useState(false);
+
   function handleOnPageChange(pageInfo: IPaginationInfo) {
     console.log(pageInfo, 'pageInfo....');
   }
@@ -32,19 +35,31 @@ const Profile = (props) => {
   });
 
   const getNewProfileDetails = async () => {
-    const profileDetails = await getProfileDetails(userProfileId);
-    setUserProfile(profileDetails);
+    try {
+      setIsProfileLoading(true);
+      const profileDetails = await getProfileDetails(userProfileId);
+      setUserProfile(profileDetails);
+      setIsProfileLoading(false);
+    } catch (err) {
+      setIsProfileLoading(false);
+    }
   };
 
   const getRepoDetails = async () => {
-    const repoPage = pageInfo?.page ?? 1;
-    const repoList: IRepoDetail[] = await getUserRepositories(userProfileId, repoPage);
-    setRepositoryInfo((prevDetails) => {
-      return {
-        ...prevDetails,
-        repoList
-      };
-    });
+    try {
+      setIsRepoListLoading(true);
+      const repoPage = pageInfo?.page ?? 1;
+      const repoList: IRepoDetail[] = await getUserRepositories(userProfileId, repoPage);
+      setIsRepoListLoading(false);
+      setRepositoryInfo((prevDetails) => {
+        return {
+          ...prevDetails,
+          repoList
+        };
+      });
+    } catch (err) {
+      setIsRepoListLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -59,11 +74,15 @@ const Profile = (props) => {
     <div className="profile-page">
       <Grid container spacing={4}>
         <Grid item sm={12} xs={12} lg={4} xl={4} spacing={1}>
-          <ProfileCard userProfileDetails={profileDetails}></ProfileCard>
+          <ProfileCard
+            userProfileDetails={profileDetails}
+            isLoading={isProfileLoading}></ProfileCard>
         </Grid>
 
         <Grid item sm={12} xs={12} lg={7} xl={7}>
-          <RepositoryList repoList={repositoryInfo?.repoList} isLoading></RepositoryList>
+          <RepositoryList
+            repoList={repositoryInfo?.repoList}
+            isLoading={isRepoListLoading}></RepositoryList>
           {AugmentedPagination}
         </Grid>
       </Grid>

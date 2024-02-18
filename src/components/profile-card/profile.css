@@ -60,6 +60,42 @@
   padding: 12px 18px;
 }
 
+.pc-other-details-label {
+  margin-top: 16px;
+  margin-top: 16px;
+}
+
+.avatar-skeleton {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-top: 16px;
+}
+
+.pc-avatar-skeleton {
+  margin-bottom: 16px;
+}
+
+.pc-identifier-skeleton {
+  padding: 16px;
+}
+
+.pc-other-details-label {
+  margin-bottom: 16px;
+  min-width: 200px;
+  width: 80%;
+}
+
+.pc-other-details-value {
+  min-width: 200px;
+  width: 80%;
+}
+
+.pc-gh-link {
+  margin-top: 16px;
+}
+
 @media screen and (max-width: 768px) {
   .profile-card {
     margin-bottom: 24px;

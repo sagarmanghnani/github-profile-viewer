@@ -2,9 +2,11 @@ import { Avatar, Divider, Grid } from '@mui/material';
 import { IUserDetail } from '../../interfaces';
 import './profile.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import ProfileSkeleton from './ProfileSkeleton';
 
 interface IProfileCardProps {
   userProfileDetails: IUserDetail;
+  isLoading?: boolean;
 }
 
 interface IOtherDetailsProps {
@@ -24,17 +26,13 @@ const OtherDetails = ({ label, value }: IOtherDetailsProps) => {
   );
 };
 
-const ProfileCard = ({ userProfileDetails }: IProfileCardProps) => {
-  return userProfileDetails ? (
+const ProfileCard = ({ userProfileDetails, isLoading }: IProfileCardProps) => {
+  return userProfileDetails && !isLoading ? (
     <>
       <div className="profile-card">
         <div className="pc-main-details">
           <div className="pc-avatar-container">
-            <Avatar
-              alt="Remy Sharp"
-              src={userProfileDetails?.avatar_url}
-              sx={{ width: 56, height: 56 }}
-            />
+            <Avatar src={userProfileDetails?.avatar_url} sx={{ width: 56, height: 56 }} />
           </div>
           <div className="pc-identifier">
             <h1> {userProfileDetails?.name} </h1>
@@ -61,7 +59,9 @@ const ProfileCard = ({ userProfileDetails }: IProfileCardProps) => {
         <OtherDetails label={'Repos'} value={userProfileDetails?.public_repos}></OtherDetails>
       </div>
     </>
-  ) : null;
+  ) : (
+    <ProfileSkeleton></ProfileSkeleton>
+  );
 };
 
 export default ProfileCard;
