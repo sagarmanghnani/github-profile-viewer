@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <GHAlert></GHAlert>
-      <Navbar></Navbar>
       <Router>
         <Routes>
           <Route path="/profile/:profileId" element={<Profile></Profile>}></Route>

@@ -16,7 +16,7 @@ interface IUserSearchResponse {
 interface IListItems {
   title: string;
   id: string;
-  onClick?: () => void;
+  onClick?: (searchedUser: ISearchUserDetail) => void;
 }
 
 interface IUserDetail extends ISearchUserDetail {

@@ -12,6 +12,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import useSearchUser from '../../hooks/useSearchUser';
 import UserSearchList from '../user-search-list/UserSearchList';
 import './navbar.css';
+import { ISearchUserDetail } from '../../interfaces';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,7 +56,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   }
 }));
 
-export default function NavBar() {
+interface INavBarProps {
+  onSearchItemClick: (searchedUser: ISearchUserDetail) => void;
+}
+
+export default function NavBar({ onSearchItemClick }: INavBarProps) {
   const { handleUserSearchInputChange, userList } = useSearchUser();
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -85,7 +90,11 @@ export default function NavBar() {
               inputProps={{ 'aria-label': 'search' }}
               onChange={handleUserSearchInputChange}
             />
-            {userList.length > 0 && <UserSearchList userList={userList}></UserSearchList>}
+            {userList.length > 0 && (
+              <UserSearchList
+                userList={userList}
+                onSearchedUserListClick={onSearchItemClick}></UserSearchList>
+            )}
           </Search>
         </Toolbar>
       </AppBar>

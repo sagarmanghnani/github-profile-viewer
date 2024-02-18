@@ -5,9 +5,10 @@ import './user-search-list.css';
 
 interface IUserSearchListProps {
   userList: ISearchUserDetail[];
+  onSearchedUserListClick: (searchedUser: ISearchUserDetail) => void;
 }
 
-const UserSearchList = ({ userList }: IUserSearchListProps) => {
+const UserSearchList = ({ userList, onSearchedUserListClick }: IUserSearchListProps) => {
   const userListRef = useRef({
     isListLoading: true,
     listItems: []
@@ -17,7 +18,8 @@ const UserSearchList = ({ userList }: IUserSearchListProps) => {
     const listItems: IListItems[] = userList.map((item: ISearchUserDetail) => {
       const listItem: IListItems = {
         title: item.login,
-        id: item.id
+        id: item.id,
+        onClick: onSearchedUserListClick
       };
       return listItem;
     });
