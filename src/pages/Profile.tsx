@@ -63,7 +63,7 @@ const Profile = (props) => {
         </Grid>
 
         <Grid item sm={12} xs={12} lg={7} xl={7}>
-          <RepositoryList repoList={repositoryInfo?.repoList}></RepositoryList>
+          <RepositoryList repoList={repositoryInfo?.repoList} isLoading></RepositoryList>
           {AugmentedPagination}
         </Grid>
       </Grid>
