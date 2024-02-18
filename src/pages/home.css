@@ -36,3 +36,9 @@
 .home-view-btn {
   margin-left: 16px !important;
 }
+
+@media screen and (max-width: 768px) {
+  .intro-card {
+    width: 95%;
+  }
+}
